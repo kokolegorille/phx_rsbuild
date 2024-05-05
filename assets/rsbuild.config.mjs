@@ -23,7 +23,9 @@ export default defineConfig({
       font: "fonts",
       image: "images",
     },
+    // Replace rim-raf
     cleanDistPath: true,
+    // Default charset is ascii
     charset: "utf8",
     // Replace copy-webpack-plugin
     copy: [{
