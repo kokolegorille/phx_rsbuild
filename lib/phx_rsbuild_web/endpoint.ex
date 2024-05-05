@@ -22,7 +22,8 @@ defmodule PhxRsbuildWeb.Endpoint do
   plug Plug.Static,
     at: "/",
     from: :phx_rsbuild,
-    gzip: false,
+    # gzip: false,
+    gzip: true,
     only: PhxRsbuildWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the

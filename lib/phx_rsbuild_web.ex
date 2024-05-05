@@ -87,6 +87,8 @@ defmodule PhxRsbuildWeb do
       import PhxRsbuildWeb.CoreComponents
       import PhxRsbuildWeb.Gettext
 
+      import PhxRsbuildWeb.Bs5Components
+
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
 

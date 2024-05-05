@@ -5,15 +5,22 @@
   "main": "src/js/app.js",
   "version": "1.0.0",
   "scripts": {
-    "watch": "rsbuild build --watch",
+    "watch": "rsbuild build --watch --env development",
     "deploy": "rsbuild build",
     "dev": "rsbuild dev --open",
     "build": "rsbuild build",
     "preview": "rsbuild preview"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "phoenix": "file:../deps/phoenix",
+    "phoenix_html": "file:../deps/phoenix_html",
+    "phoenix_live_view": "file:../deps/phoenix_live_view",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "topbar": "^2.0.2"
   },
   "devDependencies": {
     "@rsbuild/core": "^0.6.9",
