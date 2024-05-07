@@ -30,6 +30,8 @@ config :phx_rsbuild, PhxRsbuildWeb.Endpoint,
       "node_modules/.bin/rsbuild",
       "build",
       "--watch",
+      # "--config",
+      # "rsbuild.config.dev.mjs",
       cd: Path.expand("../assets", __DIR__)
     ]
   ]
