@@ -87,3 +87,32 @@ vim .gitignore
 git add .
 git commit -m "Initial commit"
 ```
+
+## Mise à jour des outils
+
+* Update rsbuild to 1.0.1-beta-3
+
+* Update rsbuild config
+
+Silence errors waiting for next BS version to solve this...
+
+```
+      pluginSass(
+        // Depreciation warnings between bootstrap 5.3 and sass
+        // https://github.com/twbs/bootstrap/issues/40621
+        // Remove when bootstrap fix issues with sass!
+        {
+          sassLoaderOptions: {
+            sassOptions: {
+              silenceDeprecations: ["mixed-decls"]
+            },
+          }}
+      ),
+```
+
+* Fix bootstrap icons and rsbuild by adding an option...
+
+```
+$bootstrap-icons-font-dir: "~bootstrap-icons/font/fonts";
+@import "~bootstrap-icons/font/bootstrap-icons.scss";
+```

@@ -1,5 +1,5 @@
 // maintain backwards compatibility of phx-feedback-for, which was removed in LiveView 1.0
-// find all phx-feedbck-for containers and show/hide phx-no-feedback class based on used inputs
+// find all phx-feedback-for containers and show/hide phx-no-feedback class based on used inputs
 import {isUsedInput} from "phoenix_live_view"
 
 let resetFeedbacks = (container, feedbacks) => {
@@ -17,9 +17,13 @@ let resetFeedbacks = (container, feedbacks) => {
   })
 }
 
-let phxFeedbackDom = (dom) => {
+export default phxFeedbackDom = (dom) => {
   window.addEventListener("reset", e => resetFeedbacks(document))
   let feedbacks
+  let submitPending = false
+  let inputPending = false
+  window.addEventListener("submit", e => submitPending = e.target)
+  window.addEventListener("input", e => inputPending = e.target)
   // extend provided dom options with our own.
   // accumulate phx-feedback-for containers for each patch and reset feedbacks when patch ends
   return {
@@ -42,6 +46,14 @@ let phxFeedbackDom = (dom) => {
     },
     onPatchEnd(container){
       resetFeedbacks(container, feedbacks)
+      // we might not find some feedback nodes if they are skipped in the patch
+      // therefore we explicitly reset feedbacks for all nodes when the patch
+      // follows a submit or input event
+      if(inputPending || submitPending){
+        resetFeedbacks(container)
+        inputPending = null
+        submitPending = null
+      }
       dom.onPatchEnd && dom.onPatchEnd(container)
     }
   }

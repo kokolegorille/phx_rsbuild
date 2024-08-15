@@ -1,5 +1,6 @@
 import { defineConfig } from "@rsbuild/core";
 import { pluginReact } from "@rsbuild/plugin-react";
+import { pluginSass } from "@rsbuild/plugin-sass"
 
 const path = require("path")
 
@@ -20,8 +21,8 @@ export default defineConfig(({_env, _command}) => {
       // By default, build is done to dist/assets/<js, css, font>/...
       distPath: {
         root: path.join(__dirname, "../priv/static"),
-        js: "assets",
-        css: "assets",
+        js: "js",
+        css: "css",
         font: "fonts",
         image: "images",
       },
@@ -34,12 +35,23 @@ export default defineConfig(({_env, _command}) => {
         from: "./static", 
         to: path.join(__dirname, "../priv/static")
       }],
-      // externals: {
-      //   jwplayer: "jwplayer"
-      // },
+      externals: {
+        jwplayer: "jwplayer"
+      },
     },
     plugins: [
-      pluginReact()
+      pluginReact(),
+      pluginSass(
+        // Depreciation warnings between bootstrap 5.3 and sass
+        // https://github.com/twbs/bootstrap/issues/40621
+        // Remove when bootstrap fix issues with sass!
+        {
+          sassLoaderOptions: {
+            sassOptions: {
+              silenceDeprecations: ["mixed-decls"]
+            },
+          }}
+      ),
     ],
   }
 })

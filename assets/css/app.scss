@@ -1,5 +1,11 @@
-@import "~bootstrap-icons/font/bootstrap-icons";
 @import "./custom_bootstrap";
+// @import "~bootstrap-icons/font/bootstrap-icons";
+
+// Bootstrap icons and webpack5 loading...
+// Also valid for rsbuild
+// https://stackoverflow.com/questions/69208829/bootstrap-icons-and-webpack-5-you-may-need-an-appropriate-loader-to-handle-thi
+$bootstrap-icons-font-dir: "~bootstrap-icons/font/fonts";
+@import "~bootstrap-icons/font/bootstrap-icons.scss";
 
 @import "./liveview";
 @import "./fonts"; 
