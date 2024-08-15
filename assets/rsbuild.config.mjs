@@ -4,7 +4,8 @@ import { pluginSass } from "@rsbuild/plugin-sass"
 
 const path = require("path")
 
-export default defineConfig(({_env, _command}) => {
+export default defineConfig(({env, command}) => {
+  console.log("rsbuild CMD: ", command, " ENV: ", env)
   return {
     source: {
       entry: {
@@ -13,11 +14,15 @@ export default defineConfig(({_env, _command}) => {
     },
     output: {
       // Do not hash name in dev
-      // filename: {
-      //   js: "[name].js",
-      //   css: "[name].css",
-      // },
-      filenameHash: false,
+      filename: {
+        // It would be better not to generate html... 
+        // because we use phoenix template
+        html: "rsbuild_generated.html",
+        js: "[name].js",
+        css: "[name].css",
+      },
+      // filenameHash: false,
+
       // By default, build is done to dist/assets/<js, css, font>/...
       distPath: {
         root: path.join(__dirname, "../priv/static"),
