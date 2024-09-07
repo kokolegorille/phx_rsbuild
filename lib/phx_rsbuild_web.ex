@@ -43,7 +43,8 @@ defmodule PhxRsbuildWeb do
         layouts: [html: PhxRsbuildWeb.Layouts]
 
       import Plug.Conn
-      import PhxRsbuildWeb.Gettext
+      # import PhxRsbuildWeb.Gettext
+      use Gettext, backend: PhxRsbuildWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -85,7 +86,8 @@ defmodule PhxRsbuildWeb do
       import Phoenix.HTML
       # Core UI components and translation
       import PhxRsbuildWeb.CoreComponents
-      import PhxRsbuildWeb.Gettext
+      # import PhxRsbuildWeb.Gettext
+      use Gettext, backend: PhxRsbuildWeb.Gettext
 
       import PhxRsbuildWeb.Bs5Components
 

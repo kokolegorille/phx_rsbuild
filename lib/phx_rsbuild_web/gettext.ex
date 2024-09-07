@@ -20,5 +20,6 @@ defmodule PhxRsbuildWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :phx_rsbuild
+  # use Gettext, otp_app: :phx_rsbuild
+  use Gettext.Backend, otp_app: :phx_rsbuild
 end

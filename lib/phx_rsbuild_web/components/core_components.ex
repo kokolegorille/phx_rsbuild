@@ -17,7 +17,8 @@ defmodule PhxRsbuildWeb.CoreComponents do
   use Phoenix.Component
 
   alias Phoenix.LiveView.JS
-  import PhxRsbuildWeb.Gettext
+  # import PhxRsbuildWeb.Gettext
+  use Gettext, backend: PhxRsbuildWeb.Gettext
 
   # @doc """
   # Renders a modal.

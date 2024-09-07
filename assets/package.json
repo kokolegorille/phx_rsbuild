@@ -23,8 +23,8 @@
     "topbar": "^3.0.0"
   },
   "devDependencies": {
-    "@rsbuild/core": "1.0.1-beta.13",
-    "@rsbuild/plugin-react": "1.0.1-beta.13",
-    "@rsbuild/plugin-sass": "^1.0.1-beta.13"
+    "@rsbuild/core": "1.0.1-rc.5",
+    "@rsbuild/plugin-react": "1.0.1-rc.5",
+    "@rsbuild/plugin-sass": "^1.0.1-rc.5"
   }
 }

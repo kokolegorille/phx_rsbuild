@@ -3,7 +3,8 @@ defmodule PhxRsbuildWeb.Bs5Components do
   Provides Bootstrap 5 UI components.
   """
   use Phoenix.Component
-  import PhxRsbuildWeb.Gettext
+  # import PhxRsbuildWeb.Gettext
+  use Gettext, backend: PhxRsbuildWeb.Gettext
 
   import PhxRsbuildWeb.CoreComponents, only: [icon: 1]
 
