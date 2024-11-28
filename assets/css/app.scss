@@ -1,12 +1,20 @@
-@import "./custom_bootstrap";
+@use "sass:meta";
+
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@include meta.load-css("custom_bootstrap");
+
+// @use "custom_bootstrap";
 // @import "~bootstrap-icons/font/bootstrap-icons";
 
 // Bootstrap icons and webpack5 loading...
 // Also valid for rsbuild
 // https://stackoverflow.com/questions/69208829/bootstrap-icons-and-webpack-5-you-may-need-an-appropriate-loader-to-handle-thi
-$bootstrap-icons-font-dir: "~bootstrap-icons/font/fonts";
-@import "~bootstrap-icons/font/bootstrap-icons.scss";
+// $bootstrap-icons-font-dir: "~bootstrap-icons/font/fonts";
 
-@import "./liveview";
-@import "./fonts"; 
-@import "./styles"; 
+// @import "~bootstrap-icons/font/bootstrap-icons";
+
+@include meta.load-css("liveview");
+
+@include meta.load-css("fonts");
+
+@include meta.load-css("styles");

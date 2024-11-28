@@ -4,8 +4,10 @@ import { pluginSass } from "@rsbuild/plugin-sass"
 
 const path = require("path")
 
+const isDev = process.env.NODE_ENV === "development";
+
 export default defineConfig(({env, command}) => {
-  console.log("rsbuild CMD: ", command, " ENV: ", env)
+  console.log("rsbuild CMD: ", command, " ENV: ", env, " ISDEV: ", isDev)
   return {
     source: {
       entry: {
