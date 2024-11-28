@@ -1,5 +1,6 @@
 defmodule PhxRsbuildWeb.Router do
   use PhxRsbuildWeb, :router
+  import Phoenix.LiveDashboard.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -37,7 +38,7 @@ defmodule PhxRsbuildWeb.Router do
     scope "/dev" do
       pipe_through :browser
 
-      # live_dashboard "/dashboard", metrics: PhxRsbuildWeb.Telemetry
+      live_dashboard "/dashboard", metrics: PhxRsbuildWeb.Telemetry
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
   end

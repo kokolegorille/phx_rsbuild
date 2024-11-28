@@ -10,7 +10,7 @@ defmodule PhxRsbuild.Application do
     children = [
       PhxRsbuildWeb.Telemetry,
       PhxRsbuild.Repo,
-      {DNSCluster, query: Application.get_env(:phx_rsbuild, :dns_cluster_query) || :ignore},
+      # {DNSCluster, query: Application.get_env(:phx_rsbuild, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: PhxRsbuild.PubSub},
       # Start the Finch HTTP client for sending emails
       {Finch, name: PhxRsbuild.Finch},
