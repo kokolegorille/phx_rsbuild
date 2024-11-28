@@ -114,4 +114,43 @@ if config_env() == :prod do
   #     config :swoosh, :api_client, Swoosh.ApiClient.Hackney
   #
   # See https://hexdocs.pm/swoosh/Swoosh.html#module-installation for details.
+
+  # Libcluster
+  config :phx_rsbuild,
+    strategy: Cluster.Strategy.Epmd,
+    hosts: [
+      # 4AM DEV
+      #   :"tv4am@10.0.0.109",
+      #   :"tvwho@10.0.0.17",
+      #   :"prem_ai@premai.4am.ch"
+
+      # LO AI
+      # :"prem_ai_client@10.100.10.69",
+      # :"prem_ai@10.100.10.59"
+
+      # 4AM AI
+      # :"prem_ai@10.0.0.71",
+      # :"tvwho@10.0.0.17",
+      # :"tv4am@10.0.0.109",
+      # :"prem_ai_client@10.0.0.109"
+    ]
 end
+
+# NEW CONFIG
+
+if config_env() == :dev do
+  # Libcluster
+  config :phx_rsbuild,
+    strategy: Cluster.Strategy.Epmd,
+    hosts: [
+      # DEV
+      :"koko@arakis",
+      :"kuku@arakis",
+    ]
+end
+
+## Common
+
+# Extract the name of the pubsub used in the cluster
+config :phx_rsbuild,
+  pubsub: PhxRsbuild.PubSub

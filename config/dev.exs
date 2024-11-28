@@ -30,9 +30,9 @@ config :phx_rsbuild, PhxRsbuildWeb.Endpoint,
       "node_modules/.bin/rsbuild",
       "build",
       "--watch",
-      # "--config",
-      # "rsbuild.config.dev.mjs",
-      cd: Path.expand("../assets", __DIR__)
+      cd: Path.expand("../assets", __DIR__),
+      # Syntax to add env variable before starting the watcher
+      env: [{"NODE_ENV", "development"}]
     ]
   ]
 

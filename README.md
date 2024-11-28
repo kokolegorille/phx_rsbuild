@@ -116,3 +116,54 @@ Silence errors waiting for next BS version to solve this...
 $bootstrap-icons-font-dir: "~bootstrap-icons/font/fonts";
 @import "~bootstrap-icons/font/bootstrap-icons.scss";
 ```
+
+## Configure cluster and pubsub
+
+config/runtme.exs
+
+```elixir
+if config_env() == :dev do
+  # Libcluster
+  config :phx_rsbuild,
+    strategy: Cluster.Strategy.Epmd,
+    hosts: [
+      # DEV
+      :"koko@arakis",
+      :"kuku@arakis",
+    ]
+end
+
+## Common
+
+# Extract the name of the pubsub used in the cluster
+config :phx_rsbuild,
+  pubsub: PhxRsbuild.PubSub
+```
+
+lib/phx_rsbuild/application.ex
+
+```elixir
+      # LibCluster
+      {Cluster.Supervisor, [topologies(), [name: Prem.ClusterSupervisor]]},
+
+  defp topologies do
+    [
+      prem: [
+        # The selected clustering strategy. Required.
+        strategy: Application.get_env(:phx_rsbuild, :strategy, Cluster.Strategy.Epmd),
+        # Configuration for the provided strategy. Optional.
+        config: [hosts: Application.fetch_env!(:phx_rsbuild, :hosts)],
+
+        # # The function to use for connecting nodes. The node
+        # # name will be appended to the argument list. Optional
+        # connect: {:net_kernel, :connect_node, []},
+        # # The function to use for disconnecting nodes. The node
+        # # name will be appended to the argument list. Optional
+        # disconnect: {:erlang, :disconnect_node, []},
+        # # The function to use for listing nodes.
+        # # This function must return a list of node names. Optional
+        # list_nodes: {:erlang, :nodes, [:connected]},
+      ]
+    ]
+  end
+```
