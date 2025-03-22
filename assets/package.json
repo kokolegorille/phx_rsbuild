@@ -1,7 +1,7 @@
 {
-  "name": "phx_rsbuild",
   "private": true,
-  "description": "Phoenix 1.7 and Rsbuild",
+  "name": "phx_rsbuild",
+  "description": "Phoenix and Rsbuild",
   "main": "src/js/app.js",
   "version": "1.0.0",
   "scripts": {

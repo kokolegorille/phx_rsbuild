@@ -14,16 +14,17 @@ export default defineConfig(({env, command}) => {
         app: "./js/app.js",
       },
     },
+    // Do not generate html... because we use phoenix template
+    tools: {
+      htmlPlugin: false, // Disables the HTML plugin
+    },
+    html: false,
     output: {
       // Do not hash name in dev
       filename: {
-        // It would be better not to generate html... 
-        // because we use phoenix template
-        html: "rsbuild_generated.html",
         js: "[name].js",
         css: "[name].css",
       },
-      // filenameHash: false,
 
       // By default, build is done to dist/assets/<js, css, font>/...
       distPath: {
