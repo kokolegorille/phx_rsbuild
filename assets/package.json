@@ -18,13 +18,13 @@
     "phoenix": "file:../deps/phoenix",
     "phoenix_html": "file:../deps/phoenix_html",
     "phoenix_live_view": "file:../deps/phoenix_live_view",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "topbar": "^3.0.0"
   },
   "devDependencies": {
-    "@rsbuild/core": "1.1.6",
-    "@rsbuild/plugin-react": "1.0.7",
-    "@rsbuild/plugin-sass": "^1.1.1"
+    "@rsbuild/core": "1.2.19",
+    "@rsbuild/plugin-react": "1.1.1",
+    "@rsbuild/plugin-sass": "^1.2.2"
   }
 }
